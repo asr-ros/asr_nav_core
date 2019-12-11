@@ -77,6 +77,10 @@ namespace nav_core {
        */
       virtual void initialize(std::string name, tf2_ros::Buffer* tf, costmap_2d::Costmap2DROS* costmap_ros) = 0;
 
+      void setGlobalCostmap(costmap_2d::Costmap2DROS* global_costmap_ros){
+          global_costmap_ros_ = global_costmap_ros;
+      }
+
       /**
        * @brief  Virtual destructor for the interface
        */
@@ -84,6 +88,8 @@ namespace nav_core {
 
     protected:
       BaseLocalPlanner(){}
+
+      costmap_2d::Costmap2DROS* global_costmap_ros_;
   };
 };  // namespace nav_core
 
